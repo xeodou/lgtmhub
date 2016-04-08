@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "lgtm",
+  "description": "Auto comment a random LGTM image for a github issue.",
+  "version": "1.0",
+  "icons": {
+    "128": "images/thumup128.png",
+    "48": "images/thumup48.png"
+  },
+  "browser_action": {
+    "default_icon": "images/thumup128.png",
+    "default_title": "LGTMhub", // optional; shown in tooltip
+    "default_popup": "popup.html" // optional
+  },
+  "permissions": [
+    "activeTab",
+    "https://github.com/*",
+    "http://www.lgtm.in/g"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js":      ["./content.js"],
+      "run_at":  "document_end"
+    }
+  ]
+}
